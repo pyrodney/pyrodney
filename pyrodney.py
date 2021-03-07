@@ -80,7 +80,7 @@ def file_checksum(filename):
     return checksum
 
 
-def listify-textfile(filename):
+def listify_text(filename):
     """Returns a list made from the lines of the text file passed it"""
     inputFile = open(filename, 'r')
     inputData = inputFile.read()  # read file as one big chunk
