@@ -7,15 +7,15 @@ import zlib
 def ap_headline_caps(headline):
     r"""
     Returns string with proper Associated Press headline capitalization
-    >>> APHeadlineCaps( "Kids In The Hall" )
+    >>> ap_headline_caps( "Kids In The Hall" )
     Kids in the Hall
-    >>> APHeadlineCaps( "Strangers With Candy" )
+    >>> ap_headline_caps( "Strangers With Candy" )
     Strangers with Candy
-    >>> APHeadlineCaps( "the lost boys" )
+    >>> ap_headline_caps( "the lost boys" )
     The Lost Boys
-    >>> APHeadlineCaps( "Where I'm from" )
+    >>> ap_headline_caps( "Where I'm from" )
     Where I'm From
-    >>> APHeadlineCaps( "fALLiNG aWAY fROM mE" )
+    >>> ap_headline_caps( "fALLiNG aWAY fROM mE" )
     Falling Away from Me
     """
     toLower = ['a', 'an', 'and', 'as', 'at', 'but', 'by', 'for', 'from', 'in',
@@ -38,23 +38,23 @@ def ap_headline_caps(headline):
 def compare_signs(num1, num2):
     r"""
     Returns True if signs match
-    >>> CompareSigns(-1, -1)
+    >>> compare_signs(-1, -1)
     True
-    >>> CompareSigns(-1, 0)
+    >>> compare_signs(-1, 0)
     False
-    >>> CompareSigns(-1, 1)
+    >>> compare_signs(-1, 1)
     False
-    >>> CompareSigns(0, -1)
+    >>> compare_signs(0, -1)
     False
-    >>> CompareSigns(0, 0)
+    >>> compare_signs(0, 0)
     True
-    >>> CompareSigns(0, 1)
+    >>> compare_signs(0, 1)
     True
-    >>> CompareSigns(1, -1)
+    >>> compare_signs(1, -1)
     False
-    >>> CompareSigns(1, 0)
+    >>> compare_signs(1, 0)
     True
-    >>> CompareSigns(1, 1)
+    >>> compare_signs(1, 1)
     True
     """
     if num1 < 0 and num2 < 0 or num1 >= 0 and num2 >= 0:
@@ -65,25 +65,23 @@ def compare_signs(num1, num2):
 
 def file_checksum(filename):
     """Returns checksum for any arbitrarily-lengthed file"""
-    checksumTally = 0
+    checksum_tally = 0
 
     with open(filename, 'rb') as fileHandle:
         while True:
             chunk = fileHandle.read(102400)
             if chunk != '':
-                checksumTally = checksumTally + zlib.crc32(chunk)
+                checksum_tally = checksum_tally + zlib.crc32(chunk)
             else:
                 break
 
-    checksum = zlib.crc32(str(checksumTally))
-
-    return checksum
+    return zlib.crc32(str(checksum_tally))
 
 
 def listify_text(filename):
     """Returns a list made from the lines of the text file passed it"""
-    inputFile = open(filename, 'r')
-    inputData = inputFile.read()  # read file as one big chunk
-    inputFile.close()
-    inputData = inputData.splitlines()  # split file into list of lines
-    return inputData
+    input_file = open(filename, 'r')
+    input_data = input_file.read()  # read file as one big chunk
+    input_file.close()
+    input_data = input_data.splitlines()  # split file into list of lines
+    return input_data
