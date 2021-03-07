@@ -20,7 +20,7 @@ def ap_headline_caps(headline):
     """
     toLower = ['a', 'an', 'and', 'as', 'at', 'but', 'by', 'for', 'from', 'in',
                'nor', 'of', 'off', 'on', 'so', 'the', 'to', 'with', 'yet']
-    headline = headline.split('')  # split string into list of words
+    headline = headline.split(' ')  # split string into list of words
 
     for index, item in enumerate(headline):
         if item.lower() in toLower:  # if this a word we want in lowercase...
